@@ -15,6 +15,7 @@ public class ConnectionJDBC_Full {
         try(Connection connection = ContextDB.getConnection()){
             IUserRepository<User> userRepository = new UserRepository();
             int indexOption = 0;
+
             do {
                 Map<String, Integer> options = new HashMap<>();
                 options.put("Create", 1);
@@ -85,7 +86,6 @@ public class ConnectionJDBC_Full {
 
                 }
             }  while (indexOption != 5);
-
         } catch (SQLException sql){
             throw new RuntimeException(sql.getMessage());
         }
